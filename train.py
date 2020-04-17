@@ -168,7 +168,7 @@ if __name__ == "__main__":
         
         print('Epoch', epoch, opt.evaluation_interval)
         
-        if epoch % opt.evaluation_interval == 1:
+        if epoch % opt.evaluation_interval == 0:
             print("\n---- Evaluating Model ----")
             # Evaluate the model on the validation set
             result = evaluate(
