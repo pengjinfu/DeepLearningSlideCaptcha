@@ -50,6 +50,7 @@ def evaluate(model, path, iou_thres, conf_thres, nms_thres, img_size, batch_size
         sample_metrics += get_batch_statistics(outputs, targets, iou_threshold=iou_thres)
     
     if not sample_metrics:
+        print('no eval result')
         return None
     
     # Concatenate sample statistics
