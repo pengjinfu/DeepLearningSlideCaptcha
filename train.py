@@ -166,6 +166,8 @@ if __name__ == "__main__":
             
             model.seen += imgs.size(0)
         
+        print('Epoch', epoch, opt.evaluation_interval)
+        
         if epoch % opt.evaluation_interval == 1:
             print("\n---- Evaluating Model ----")
             # Evaluate the model on the validation set
