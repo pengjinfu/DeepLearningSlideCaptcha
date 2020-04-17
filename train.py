@@ -382,7 +382,7 @@ if __name__ == "__main__":
                 batch_size=8,
             )
             if result:
-                print('eval result', result)
+                print('result', result)
                 precision, recall, AP, f1, ap_class = result
                 evaluation_metrics = [
                     ("val_precision", precision.mean()),
