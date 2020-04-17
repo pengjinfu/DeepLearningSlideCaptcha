@@ -5,7 +5,7 @@ import shutil
 from os.path import basename
 
 traintxt = open('data/captcha/train.txt', 'w', encoding='utf-8')
-label = open('data/captcha/labels/train.txt', 'w', encoding='utf-8')
+# label = open('data/captcha/labels/train.txt', 'w', encoding='utf-8')
 
 for file in glob.glob('data/raw/*.xml'):
     print('file', file)
@@ -41,8 +41,11 @@ for file in glob.glob('data/raw/*.xml'):
     print('center y', center_y)
     print('width', width)
     print('height', height)
-
+    
     traintxt.write(f'data/captcha/images/{basename(image)}\n')
-    label.write(f'0 {center_x} {center_y} {width} {height}\n')
+    # label.write(f'0 {round(center_x, 8)} {round(center_y, 8)} {round(width, 8)} {round(height, 8)}\n')
+    
+    with open(f'data/captcha/labels/{basename(image).replace(".png", ".txt")}', 'w', encoding='utf-8') as f:
+        f.write(f'0 {round(center_x, 8)} {round(center_y, 8)} {round(width, 8)} {round(height, 8)}\n')
     
     # break

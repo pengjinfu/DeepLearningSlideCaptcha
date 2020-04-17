@@ -43,6 +43,9 @@ for file in glob.glob('data/raw/valid/*.xml'):
     print('height', height)
 
     traintxt.write(f'data/captcha/images/{basename(image)}\n')
-    label.write(f'0 {center_x} {center_y} {width} {height}\n')
-    
+    # label.write(f'0 {round(center_x, 8)} {round(center_y, 8)} {round(width, 8)} {round(height, 8)}\n')
+
+    with open(f'data/captcha/labels/{basename(image).replace(".png", ".txt")}', 'w', encoding='utf-8') as f:
+        f.write(f'0 {round(center_x, 8)} {round(center_y, 8)} {round(width, 8)} {round(height, 8)}\n')
+
     # break
