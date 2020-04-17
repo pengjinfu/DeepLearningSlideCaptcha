@@ -1,0 +1,26 @@
+<annotation>
+	<folder>captcha</folder>
+	<filename>captcha_282.png</filename>
+	<path>/Users/CQC/Desktop/captcha/captcha_282.png</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>620</width>
+		<height>310</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>target</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>449</xmin>
+			<ymin>19</ymin>
+			<xmax>554</xmax>
+			<ymax>125</ymax>
+		</bndbox>
+	</object>
+</annotation>

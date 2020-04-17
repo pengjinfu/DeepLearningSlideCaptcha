@@ -25,6 +25,8 @@ for file in glob.glob('data/raw/*.xml'):
     width = int(annoatation.get('size').get('width'))
     height = int(annoatation.get('size').get('height'))
     
+    
+    
     bndbox = annoatation.get('object').get('bndbox')
     xmin = int(bndbox.get('xmin'))
     xmax = int(bndbox.get('xmax'))
