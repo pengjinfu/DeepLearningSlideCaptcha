@@ -5,16 +5,18 @@ if not sys.warnoptions:
     import warnings
     
     warnings.simplefilter("ignore")
-    
+
 import warnings
+
 
 def fxn():
     warnings.warn("deprecated", DeprecationWarning)
 
+
 with warnings.catch_warnings():
     warnings.simplefilter("ignore")
     fxn()
-    
+
 warnings.filterwarnings("ignore")
 
 from models import *
@@ -167,7 +169,7 @@ if __name__ == "__main__":
         if epoch % opt.evaluation_interval == 1:
             print("\n---- Evaluating Model ----")
             # Evaluate the model on the validation set
-            precision, recall, AP, f1, ap_class = evaluate(
+            result = evaluate(
                 model,
                 path=valid_path,
                 iou_thres=0.5,
@@ -176,20 +178,22 @@ if __name__ == "__main__":
                 img_size=opt.img_size,
                 batch_size=8,
             )
-            evaluation_metrics = [
-                ("val_precision", precision.mean()),
-                ("val_recall", recall.mean()),
-                ("val_mAP", AP.mean()),
-                ("val_f1", f1.mean()),
-            ]
-            logger.list_of_scalars_summary(evaluation_metrics, epoch)
-            
-            # Print class APs and mAP
-            ap_table = [["Index", "Class name", "AP"]]
-            for i, c in enumerate(ap_class):
-                ap_table += [[c, class_names[c], "%.5f" % AP[i]]]
-            print(AsciiTable(ap_table).table)
-            print(f"---- mAP {AP.mean()}")
+            if result:
+                precision, recall, AP, f1, ap_class = result
+                evaluation_metrics = [
+                    ("val_precision", precision.mean()),
+                    ("val_recall", recall.mean()),
+                    ("val_mAP", AP.mean()),
+                    ("val_f1", f1.mean()),
+                ]
+                logger.list_of_scalars_summary(evaluation_metrics, epoch)
+                
+                # Print class APs and mAP
+                ap_table = [["Index", "Class name", "AP"]]
+                for i, c in enumerate(ap_class):
+                    ap_table += [[c, class_names[c], "%.5f" % AP[i]]]
+                print(AsciiTable(ap_table).table)
+                print(f"---- mAP {AP.mean()}")
         
         if epoch % opt.checkpoint_interval == 0:
             torch.save(model.state_dict(), f"checkpoints/yolov3_ckpt_%d.pth" % epoch)
