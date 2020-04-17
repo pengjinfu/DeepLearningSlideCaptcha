@@ -1,0 +1,26 @@
+<annotation>
+	<folder>captcha</folder>
+	<filename>captcha_23.png</filename>
+	<path>/Users/CQC/Desktop/captcha/captcha_23.png</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>620</width>
+		<height>310</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>target</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>252</xmin>
+			<ymin>86</ymin>
+			<xmax>356</xmax>
+			<ymax>191</ymax>
+		</bndbox>
+	</object>
+</annotation>
