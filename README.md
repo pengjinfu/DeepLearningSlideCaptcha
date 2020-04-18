@@ -5,9 +5,6 @@
 只需要几百张缺口标注图片即可训练出精度高的识别模型，识别效果样例：
 
 ![](data/captcha/result/captcha_4502.png)
-
-> 注：本项目基于 [GNU 协议](https://github.com/eriklindernoren/PyTorch-YOLOv3/blob/master/LICENSE)，同时仅供学习交流使用，本人不承担任何法律责任。
-
 ## 克隆项目
 
 由于本项目使用了 Git LFS，包含了已经训练好的模型，克隆时间较长，基本命令：
@@ -19,10 +16,8 @@ git clone https://github.com/Python3WebSpider/DeepLearningSlideCaptcha.git
 如果想加速克隆，暂时先跳过大文件模型下载，可以执行命令：
 
 ```
-GIT_LFS_SKIP_SMUDGE=1 https://github.com/Python3WebSpider/DeepLearningSlideCaptcha.git
+GIT_LFS_SKIP_SMUDGE=1 git clone https://github.com/Python3WebSpider/DeepLearningSlideCaptcha.git
 ```
-
-定义了 GIT_LFS_SKIP_SMUDGE 环境变量可以跳过 Git LFS 文件下载。
 
 ## 数据准备
 
@@ -58,7 +53,7 @@ bash prepare.sh
 
 本项目已经提供了标注好的数据集，在 data/captcha，可以直接使用。
 
-如果要训练自己的数据，数据格式准备见：[https://github.com/eriklindernoren/PyTorch-YOLOv3#train-on-custom-dataset]（https://github.com/eriklindernoren/PyTorch-YOLOv3#train-on-custom-dataset）。
+如果要训练自己的数据，数据格式准备见：[https://github.com/eriklindernoren/PyTorch-YOLOv3#train-on-custom-dataset](https://github.com/eriklindernoren/PyTorch-YOLOv3#train-on-custom-dataset)。
 
 当前数据训练脚本：
 
@@ -128,3 +123,11 @@ Saving images:
 ![](data/captcha/result/captcha_4505.png)
 
 ![](data/captcha/result/captcha_4503.png)
+
+## 协议
+
+本项目基于开源 [GNU 协议](https://github.com/eriklindernoren/PyTorch-YOLOv3/blob/master/LICENSE)，另外本项目不提供任何有关滑动轨迹相关模拟和 JavaScript 逆向分析方案。
+
+本项目仅供学习交流使用，请勿用于非法用途，本人不承担任何法律责任。
+
+如有侵权请联系个人删除，谢谢。
