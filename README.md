@@ -8,6 +8,22 @@
 
 > 注：本项目基于 [GNU 协议](https://github.com/eriklindernoren/PyTorch-YOLOv3/blob/master/LICENSE)，同时仅供学习交流使用，本人不承担任何法律责任。
 
+## 克隆项目
+
+由于本项目使用了 Git LFS，包含了已经训练好的模型，克隆时间较长，基本命令：
+
+```
+git clone https://github.com/Python3WebSpider/DeepLearningSlideCaptcha.git
+```
+
+如果想加速克隆，暂时先跳过大文件模型下载，可以执行命令：
+
+```
+GIT_LFS_SKIP_SMUDGE=1 https://github.com/Python3WebSpider/DeepLearningSlideCaptcha.git
+```
+
+定义了 GIT_LFS_SKIP_SMUDGE 环境变量可以跳过 Git LFS 文件下载。
+
 ## 数据准备
 
 使用 LabelImg 工具标注自行标注一批数据，大约 200 张以上即可训练出不错的效果。
@@ -53,6 +69,14 @@ bash train.sh
 ## 测试
 
 训练完毕之后会在 checkpoints 文件夹生成 pth 文件，可直接使用模型来预测生成标注结果。
+
+如之前跳过了 Git LFS 文件下载，则可以使用如下命令下载 Git LFS 文件：
+
+```
+git lfs pull
+```
+
+此时 checkpoints 文件夹会生成训练好的 pth 文件。
 
 当前数据测试脚本：
 
