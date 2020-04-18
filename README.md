@@ -61,6 +61,8 @@ bash prepare.sh
 bash train.sh
 ```
 
+实测 P100 训练时长约 15 秒一个 epoch，大约几分钟即可训练出较好效果。
+
 ## 测试
 
 训练完毕之后会在 checkpoints 文件夹生成 pth 文件，可直接使用模型来预测生成标注结果。
