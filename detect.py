@@ -40,7 +40,7 @@ if __name__ == "__main__":
     
     output_folder = join(dirname(opt.image_folder), 'result')
     
-    os.makedirs("output", exist_ok=True)
+    os.makedirs(output_folder, exist_ok=True)
     
     # Set up model
     model = Darknet(opt.model_def, img_size=opt.img_size).to(device)
@@ -121,6 +121,7 @@ if __name__ == "__main__":
                 color = bbox_colors[int(np.where(unique_labels == int(cls_pred))[0])]
                 # Create a Rectangle patch
                 bbox = patches.Rectangle((x1, y1), box_w, box_h, linewidth=2, edgecolor=color, facecolor="none")
+                print('bbox', (x1, y1, box_w, box_h))
                 # Add the bbox to the plot
                 ax.add_patch(bbox)
                 # Add label
